@@ -1,0 +1,15 @@
+# Jornada CPSI
+
+> Plataforma gratuita, em português do Brasil, que ajuda servidores públicos e fornecedores a contratar soluções inovadoras pelo Contrato Público para Solução Inovadora (CPSI), da Lei Complementar 182/2021 (Marco Legal das Startups).
+
+Dados públicos: Observatório do CPSI, PGE-SP e Toolkit do Marco Legal de CT&I, 2ª edição, dados até 01/06/2026.
+
+## Páginas principais
+- [CPSI no Brasil: números, editais e como contratar](https://helloliueunice.github.io/jornada-cpsi/cpsi/): 191 editais e 293 CPSIs, por estado e por área.
+- [O que é CPSI](https://helloliueunice.github.io/jornada-cpsi/o-que-e-cpsi.html): guia simples dos arts. 12 a 15 da LC 182/2021, com perguntas frequentes.
+- [Modelos de documentos](https://helloliueunice.github.io/jornada-cpsi/modelos-cpsi.html): modelos por etapa.
+- [Plataforma](https://helloliueunice.github.io/jornada-cpsi/): diagnóstico do melhor caminho, processo guiado e modelos preenchidos.
+
+## Observações
+- Material de apoio; não substitui a análise jurídica do órgão.
+- Páginas por estado: https://helloliueunice.github.io/jornada-cpsi/cpsi/estado/<uf>.html; por área: https://helloliueunice.github.io/jornada-cpsi/cpsi/area/<area>.html

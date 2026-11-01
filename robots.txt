@@ -1,0 +1,6 @@
+# Jornada CPSI
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://helloliueunice.github.io/jornada-cpsi/sitemap.xml
