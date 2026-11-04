@@ -456,6 +456,30 @@ body{font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased}
 .temas{display:inline-flex;gap:4px;align-items:center;flex-wrap:wrap}
 .temas button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:var(--pill);padding:4px 12px;min-height:32px;cursor:pointer}
 .temas button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+.tarefas{display:flex;flex-direction:column;gap:14px;border-top:5px solid var(--accent)}
+.tarefas h2{font-size:22px;margin:0}
+.tgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:980px){.tgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.tgrid{grid-template-columns:1fr}}
+.tbtn{font:inherit;text-align:left;display:flex;flex-direction:column;gap:4px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--ink);cursor:pointer;min-height:84px;text-decoration:none}
+.tbtn:hover{border-color:var(--accent);background:var(--accent-soft)}
+.tbtn[aria-expanded="true"],.tbtn.main{border:2px solid var(--accent)}
+.tbtn.main{background:var(--accent);color:var(--accent-ink)}
+.tbtn.main:hover{background:var(--accent-strong)}
+.tbtn b{font-size:17px;line-height:1.3}
+.tbtn span{font-size:14px;opacity:.85}
+.tpwrap{grid-column:1/-1;order:99}.tpwrap:empty{display:none}@media (max-width:520px){.tpwrap{order:var(--ord,99)}.tbtn{min-height:0;padding:12px 14px}}
+.tpanel{display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:var(--r);background:var(--sunk);border:1px solid var(--line)}
+.tpanel h3{margin:0;font-size:19px}
+.tpanel .fgrid{display:grid;grid-template-columns:2fr 1fr 2fr;gap:10px}
+@media (max-width:720px){.tpanel .fgrid{grid-template-columns:1fr}}
+.tpanel label{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:15px}
+.tpanel label.chk{flex-direction:row;align-items:flex-start;gap:8px;font-weight:400}
+.tpanel textarea,.tpanel input[type=text],.tpanel select{font:inherit;font-weight:400;padding:10px;border:1px solid var(--ctrl);border-radius:8px;background:var(--surface);color:var(--ink);min-height:44px}
+.qpasso{font-size:14px;color:var(--muted)}
+.qres{display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:var(--r);background:var(--surface);border-left:5px solid var(--ok)}
+.qres h4{margin:0;font-size:20px}
 .prompt p{white-space:pre-wrap;font-family:var(--f-mono);font-size:14px;overflow-wrap:anywhere}
 
 .subnav{display:flex;gap:6px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}
@@ -549,7 +573,7 @@ details.plainfold>summary{cursor:pointer;min-height:36px;padding:4px 0}
   <span class="brand-wrap"><a class="brand" href="#radar"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M8 22.5 13.5 15l4.5 4.5L24 10" fill="none" stroke="var(--surface)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="10" r="2.6" fill="var(--surface)"/></svg>Jornada CPSI</a><span class="brand-sub">Piloto · compras públicas de inovação</span></span>
   <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"></span>Menu</button>
   <nav class="nav" id="nav" aria-label="Seções"><ul>
-    <li><a href="#radar" data-g="radar">Radar</a></li>
+    <li><a href="#radar" data-g="radar">Início</a></li>
     <li><a href="#processos" data-g="processos">Meus processos</a><ul class="sub"><li><a href="#inicio">Minha jornada</a></li><li><a href="#processos">Lista e etapas</a></li><li><a href="#painel">Carteira e prazos</a></li><li><a href="#resultados">Indicadores dos processos</a></li></ul></li>
     <li><a href="#aprender" data-g="aprender">Aprender</a><ul class="sub"><li><a href="#diagnostico">Qual caminho usar?</a></li><li><a href="#copiloto">Tirar dúvidas</a></li><li><a href="#academia">Curso rápido</a></li><li><a href="#modelos">Modelos prontos</a></li><li><a href="#minuta">Conferir minuta</a></li><li><a href="#guia">Guia completo</a></li><li><a href="#nota10">Autoavaliação nota 10</a></li><li><a href="#glossario">Glossário e normas</a></li></ul></li>
     <li><a href="#casos" data-g="casos">Casos e dados</a><ul class="sub"><li><a href="#vitrine">Desafios de outros órgãos</a></li><li><a href="#biblioteca">Editais reais</a></li><li><a href="#estudos">Estudos de caso</a></li></ul></li>
@@ -939,10 +963,12 @@ details.plainfold>summary{cursor:pointer;min-height:36px;padding:4px 0}
     <div class="row" style="justify-content:space-between;align-items:flex-end">
       <div style="display:flex;flex-direction:column;gap:6px"><span class="eyebrow">Radar do CPSI · compras públicas de inovação</span><h1 id="radH1">1 em cada 9 testes de inovação vira compra no Brasil.</h1>
       <p class="lede">Veja como fazer o seu ser um deles: o que já foi contratado, onde, por quanto e em quanto tempo.</p>
-      <p><span class="databadge">Dados até 01/06/2026 · Observatório do CPSI (PGE-SP e Toolkit do Marco Legal de CT&amp;I) · 191 editais e 293 CPSIs</span></p></div>
+      </div>
     </div>
+    <section class="card tarefas" id="tarefas" aria-labelledby="tarefasH"><h2 id="tarefasH">O que você precisa fazer hoje?</h2><div class="tgrid" id="tgrid"></div></section>
+    <p><span class="databadge">Dados até 01/06/2026 · Observatório do CPSI (PGE-SP e Toolkit do Marco Legal de CT&amp;I) · 191 editais e 293 CPSIs</span></p>
     <div class="card herocard" id="radHero"></div>
-    <div id="radJourney"></div>
+    <div id="radJourney" hidden></div>
     <div id="radPrev"></div>
     <div class="card" id="indCard">
       <div style="display:flex;flex-direction:column;gap:4px"><span class="eyebrow">Panorama</span><h2>CPSIs realizados e em andamento</h2></div>
@@ -1434,7 +1460,7 @@ menuBtn.addEventListener('click',()=>navEl.classList.contains('open')?closeMenu(
 navEl.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu(false)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&navEl.classList.contains('open')){e.preventDefault();closeMenu(true)}});
 document.addEventListener('click',e=>{if(navEl.classList.contains('open')&&!e.target.closest('.top'))closeMenu(false)});
-const TITLES={planos:'Planos',inicio:'Minha jornada',painel:'Carteira e prazos',minuta:'Conferir minuta',diagnostico:'Qual caminho usar?',processos:'Meus processos',radar:'Radar do CPSI',resultados:'Indicadores dos processos',copiloto:'Tirar dúvidas',academia:'Curso rápido',vitrine:'Desafios de outros órgãos',biblioteca:'Editais reais',rede:'Ajuda de colegas',conquistas:'Meu progresso',termos:'Termo de uso',privacidade:'Aviso de privacidade',acessibilidade:'Declaração de acessibilidade',aprender:'Aprender',casos:'Casos e dados',mais:'Mais',guia:'Guia completo do CPSI',modelos:'Modelos prontos',nota10:'Autoavaliação nota 10',glossario:'Glossário e normas',estudos:'Estudos de caso'};
+const TITLES={planos:'Planos',inicio:'Minha jornada',painel:'Carteira e prazos',minuta:'Conferir minuta',diagnostico:'Qual caminho usar?',processos:'Meus processos',radar:'Início',resultados:'Indicadores dos processos',copiloto:'Tirar dúvidas',academia:'Curso rápido',vitrine:'Desafios de outros órgãos',biblioteca:'Editais reais',rede:'Ajuda de colegas',conquistas:'Meu progresso',termos:'Termo de uso',privacidade:'Aviso de privacidade',acessibilidade:'Declaração de acessibilidade',aprender:'Aprender',casos:'Casos e dados',mais:'Mais',guia:'Guia completo do CPSI',modelos:'Modelos prontos',nota10:'Autoavaliação nota 10',glossario:'Glossário e normas',estudos:'Estudos de caso'};
 function focusView(){const sec=$('section[data-view="'+S.view+'"]');if(!sec)return;const h1=[...sec.querySelectorAll('h1')].find(x=>!x.closest('[hidden]'));focusTarget(h1||$('#conteudo'))}
 addEventListener('hashchange',route);
 $('.skip').addEventListener('click',e=>{e.preventDefault();focusView();const sec=$('section[data-view="'+S.view+'"]');if(sec)sec.scrollIntoView({block:'start'})});
@@ -1647,15 +1673,15 @@ function needSave(anchor){
   const go=t=>{showErr(anchor,t[0],t[1]);return true};
   if(!S.uid||!S.db)return go(['Seu trabalho não pode ser salvo porque você não entrou na sua conta. Entre na conta claude.ai e tente de novo; diagnóstico, biblioteca e números do Brasil funcionam sem login.']);
   if(!S.writable)return go(['Você pode ver esta página, mas não tem permissão para salvar. Peça acesso de Colaborador a quem compartilhou a plataforma.']);
-  if(!accepted())return go(['Para salvar, primeiro aceite o termo de uso no cartão "Antes de começar", na página inicial.',[{t:'Ir para o cartão "Antes de começar"',go:()=>{location.hash='inicio';setTimeout(()=>focusTarget($('#obTerms')),80)}}]]);
+  if(!accepted()){const alvo=anchor||lastAct;return go(['Para salvar, confirme que leu o termo de uso: a plataforma é um apoio, não substitui o parecer jurídico, e você não deve colocar dados pessoais ou sigilosos.',[{t:'Li o termo, concordo e quero continuar',go:e=>{aceitarTermo();const box=e&&e.currentTarget&&e.currentTarget.closest('.errbox');if(box)box.remove();if(alvo&&alvo.isConnected)setTimeout(()=>alvo.click(),30)}},{t:'Ler o termo de uso',go:()=>{location.hash='termos'}}]])}
   return false;
 }
 async function newProc(seed){
   if(needSave())return;
   if(COM.on&&S.plano&&S.plano.limites&&S.plano.limites.processos!=null&&S.procs.size>=S.plano.limites.processos){showErr(lastAct,'Seu plano permite '+S.plano.limites.processos+(S.plano.limites.processos===1?' processo':' processos')+'. Para criar outro, conheça os planos ou exclua '+([...S.procs.values()].some(x=>x.exemplo)?'o processo de exemplo (em Mais ações).':'um processo antigo.'),[{t:'Ver planos',go:()=>{location.hash='planos'}}]);return}
-  const p=blankProc();p.titulo='';if(seed&&seed.problema&&typeof seed.problema==='string'){p.c.problema=seed.problema;logEv(p,'Problema trazido do diagnóstico de caminho')}logEv(p,'Processo criado');S.procs.set(p.id,p);S.stage='d';
+  const p=blankProc();p.titulo='';if(seed&&seed.problema&&typeof seed.problema==='string'){p.c.problema=seed.problema;logEv(p,seed.rapido?'Problema informado na página inicial':'Problema trazido do diagnóstico de caminho')}if(seed&&seed.rapido){if(seed.orgao)p.c.orgao=seed.orgao;if(seed.uf)p.c.uf=seed.uf;if(seed.area)p.c.area=seed.area;p.titulo=short(seed.problema.replace(/\s+/g,' '),70)}logEv(p,'Processo criado');S.procs.set(p.id,p);S.stage='d';
   await save(procPath(p.id),JSON.parse(JSON.stringify(p)));
-  award('proc');S.open=p.id;S.pendingFocus='f_titulo';
+  award('proc');S.open=p.id;S.pendingFocus='f_titulo';if(seed&&seed.rapido){const k=STAGE_ESS.d.find(k=>!filled(p,k));S.pendingFocus=k?k2id(k):'f_titulo';toast('Processo criado. Agora diga como você mede o problema hoje.')}
   if(location.hash!=='#processos')location.hash='processos';else{renderProcs();const id=S.pendingFocus;S.pendingFocus=null;focusField(id)}
 }
 function openProc(id){S.open=id;S.stage=S.stage||'d';if(location.hash!=='#processos'){location.hash='processos'}else{renderProcs();focusTarget($('#procTitle'))}}
@@ -5216,8 +5242,80 @@ $('#radClear').addEventListener('click',()=>{S.radF={area:'',uf:'',esfera:''};re
 $('#radMine').addEventListener('click',e=>{const p=(S.open&&S.procs.get(S.open))||curProc();if(!p){showErr(e.currentTarget,'Você ainda não tem processo para comparar. Crie um processo e preencha área, UF e nível de governo na etapa 1.');return}clearErr(e.currentTarget);S.radF={area:p.c.area||'',uf:p.c.uf||'',esfera:p.c.esfera||''};renderRadar()});
 function openRadarFor(p){S.radF={area:p.c.area||'',uf:'',esfera:p.c.esfera||''};location.hash='radar'}
 function hbars(list,max,fmt){return h('div',{class:'hbars'},list.map(([k,v])=>h('div',{class:'hb'},h('span',{text:k}),h('b',{text:fmt?fmt(v):nf.format(v)}),h('span',{class:'tr','aria-hidden':'true'},h('i',{style:'width:'+(max?Math.max(2,v/max*100):0)+'%'})))))}
+
+/* ===================== Jornada em poucos cliques: lançador de tarefas da página inicial ===================== */
+let TQ={aberto:null,passo:0,resp:{},prob:'',orgao:'',uf:'',area:''};
+const TQ_IDS=['clareza','mercado','quer'];
+function aceitarTermo(){S.perfil=S.perfil||{};S.perfil.termos={versao:TERMOS_VERSAO,em:new Date().toISOString()};S.perfil.pref={...(S.perfil.pref||{}),modo:(S.perfil.pref&&S.perfil.pref.modo)||'guiado'};savePerfil();try{applyModo();renderOnboard();renderHeader()}catch(e){}}
+function podeSalvar(){return !!(S.uid&&S.db&&S.writable)}
+function tAbrir(k){TQ.aberto=TQ.aberto===k?null:k;if(k==='caminho'&&TQ.aberto){TQ.passo=0;TQ.resp={}}renderTarefas();const f=$('#tpainel h3');if(f&&TQ.aberto)focusTarget(f)}
+function renderTarefas(){
+  const g=$('#tgrid');if(!g)return;const pn=h('div',{id:'tpainel',class:'tpwrap'});
+  const p=curProc();
+  const t=(k,tit,sub,extra)=>h('button',{type:'button',class:'tbtn'+(extra||''),'aria-expanded':String(TQ.aberto===k),'aria-controls':'tpainel',onclick:()=>tAbrir(k)},h('b',{text:tit}),h('span',{text:sub}));
+  const cards=[];
+  if(p&&!p.exemplo){const i=curStageIdx(p);cards.push(h('button',{type:'button',class:'tbtn main',onclick:()=>continuarProc(p)},h('b',{text:'Continuar meu processo'}),h('span',{text:short(p.titulo||'Processo sem nome',44)+' · etapa '+(i+1)+' de 6'})))}
+  cards.push(t('caminho','Descobrir se é caso de CPSI','3 perguntas, 1 minuto',p&&!p.exemplo?'':' main'));
+  cards.push(t('montar',p&&!p.exemplo?'Começar outro processo':'Montar meu processo','1 tela; os documentos saem prontos'));
+  cards.push(h('a',{class:'tbtn',href:'#modelos'},h('b',{text:'Baixar um modelo pronto'}),h('span',{text:'Edital, contrato e outros, em Word'})));
+  if(cards.length<5)cards.push(h('a',{class:'tbtn',href:'#vitrine'},h('b',{text:'Ver como outros órgãos fizeram'}),h('span',{text:'Desafios e editais reais'})));
+  const vis=cards.slice(0,4);vis.forEach((c,i)=>c.style.order=String(i*2));g.replaceChildren(...vis,pn);
+  const idx=vis.findIndex(c=>c.getAttribute('aria-expanded')==='true');pn.style.setProperty('--ord',String(idx<0?99:idx*2+1));
+  if(TQ.aberto==='caminho')pn.append(painelCaminho());
+  else if(TQ.aberto==='montar')pn.append(painelMontar());
+}
+function continuarProc(p){const i=curStageIdx(p);S.stage=STAGES[i].k;const ess=STAGE_ESS[S.stage]||[];const k=ess.find(k=>!filled(p,k));if(k)S.pendingFocus=k2id(k);openProc(p.id)}
+function painelCaminho(){
+  const box=h('div',{class:'tpanel',id:'tpCaminho'});
+  if(TQ.passo<TQ_IDS.length){
+    const q=DQ.find(x=>x.id===TQ_IDS[TQ.passo]);
+    box.append(h('span',{class:'qpasso',text:'Pergunta '+(TQ.passo+1)+' de '+TQ_IDS.length}),h('h3',{tabindex:'-1',text:q.q}),h('p',{class:'small muted',text:q.ajuda}),
+      h('div',{class:'dopts',role:'group','aria-label':q.q},q.o.map(([v,l])=>h('button',{type:'button',class:'dopt'+(v==='ns'?' ns':''),onclick:()=>{TQ.resp[q.id]=v;TQ.passo++;renderTarefas();const f=$('#tpainel h3,#tpainel h4');if(f)focusTarget(f)}},l))),
+      TQ.passo>0?h('div',{class:'row'},h('button',{type:'button',class:'btn ghost small',onclick:()=>{TQ.passo--;renderTarefas();focusTarget($('#tpainel h3'))}},'Voltar')):'');
+    return box;
+  }
+  dAns={...dAns,...TQ.resp};
+  const r=diagCalc(),I=INSTR[r.top];track('diagRapido',r.top);
+  if(S.perfil&&S.perfil.diag!==I.curto){S.perfil.diag=I.curto;try{award('diag')}catch(e){}if(podeSalvar()&&accepted())savePerfil()}
+  const faltam=DQ.filter(q=>!dAns[q.id]).length;
+  const act=r.top==='cpsi'||I.acao==='proc'?h('button',{type:'button',class:'btn',onclick:()=>{TQ.aberto='montar';renderTarefas();const f=$('#tpProb');if(f)focusTarget(f)}},'Montar meu processo agora'):I.acao==='modelos'?h('a',{class:'btn',href:'#modelos','data-md':'p'},'Ver o roteiro de consulta ao mercado'):h('a',{class:'btn',href:'#guia'},'Entender este caminho');
+  box.append(h('h3',{tabindex:'-1',text:'Resultado rápido'}),h('div',{class:'qres'},h('span',{class:'eyebrow',text:'O caminho que mais combina'}),h('h4',{tabindex:'-1',text:I.nome}),h('p',{text:I.quando}),h('p',{class:'small'},h('b',{text:'Base legal: '}),I.base,'. ',h('b',{text:'Limites: '}),I.limites)),
+    h('div',{class:'row'},act,faltam?h('button',{type:'button',class:'btn ghost',onclick:()=>{dStep=DQ.findIndex(q=>!dAns[q.id])+1;if(dStep<1)dStep=DQ.length+1;location.hash='diagnostico'}},'Confirmar com mais '+faltam+' perguntas'):'',h('button',{type:'button',class:'btn ghost',onclick:()=>downloadDocx('Nota de escolha do instrumento',diagNota(r))},'Baixar a justificativa em Word')),
+    h('p',{class:'small muted',text:'É uma orientação para começar. A escolha final é do órgão, com a assessoria jurídica.'}));
+  return box;
+}
+function painelMontar(){
+  const box=h('div',{class:'tpanel',id:'tpMontar'});
+  if(!podeSalvar()){box.append(h('h3',{tabindex:'-1',text:'Montar meu processo'}),h('p',{text:'Para guardar o processo, entre na sua conta. Enquanto isso, você pode baixar os modelos prontos.'}),h('div',{class:'row'},h('a',{class:'btn',href:'#modelos'},'Ver modelos prontos')));return box}
+  const ta=h('textarea',{id:'tpProb',rows:'3',required:'',placeholder:'Ex.: pacientes esperam 14 meses por consulta de ortopedia e 30% faltam no dia marcado','aria-describedby':'tpProbAj tpProbFb'});ta.value=TQ.prob||dText||'';
+  const fb=h('p',{id:'tpProbFb',class:'small','aria-live':'polite'});
+  const upd=()=>{TQ.prob=ta.value;const m=solutionHint(ta.value);fb.replaceChildren(m?h('span',{class:'warnline'},h('b',{text:'Isso parece uma solução ("'+m+'"). '}),'Conte o problema: quem sofre, onde e quanto. Assim as empresas podem propor caminhos diferentes.'):'')};
+  ta.addEventListener('input',upd);upd();
+  const org=h('input',{type:'text',id:'tpOrg',autocomplete:'organization',placeholder:'Ex.: Secretaria Municipal de Saúde de ...'});org.value=TQ.orgao;org.addEventListener('input',()=>TQ.orgao=org.value);
+  const uf=h('select',{id:'tpUf'},h('option',{value:''},'Escolha'),UFS.map(u=>h('option',{value:u},u)));uf.value=TQ.uf;uf.addEventListener('change',()=>TQ.uf=uf.value);
+  const ar=h('select',{id:'tpArea'},h('option',{value:''},'Escolha (opcional)'),AREAS.map(a=>h('option',{value:a},a)));ar.value=TQ.area;ar.addEventListener('change',()=>TQ.area=ar.value);
+  const precisaAceite=!accepted();
+  const ck=precisaAceite?h('input',{type:'checkbox',id:'tpAceite'}):null;
+  const go=h('button',{type:'button',class:'btn',id:'tpCriar',onclick:async e=>{
+    const b=e.currentTarget;clearErr(b);
+    if(ta.value.trim().length<15){showErr(b,'Conte o problema em pelo menos uma frase (quem é afetado e quanto).');focusTarget(ta);return}
+    if(!uf.value){showErr(b,'Escolha a UF do órgão.');uf.focus();return}
+    if(ck&&!ck.checked){showErr(b,'Para salvar, marque que você leu e concorda com o termo de uso.');ck.focus();return}
+    if(ck)aceitarTermo();
+    await newProc({problema:ta.value.trim(),orgao:org.value.trim(),uf:uf.value,area:ar.value,rapido:true});
+    TQ={aberto:null,passo:0,resp:{},prob:'',orgao:'',uf:'',area:''};
+  }},'Criar meu processo');
+  box.append(h('h3',{tabindex:'-1',text:'Montar meu processo'}),
+    h('p',{class:'small muted',text:'Só o essencial agora. O resto a plataforma pergunta depois, uma coisa por vez, e já monta a ficha do desafio, o edital e o contrato.'}),
+    h('label',{for:'tpProb'},'Qual problema você quer resolver?',h('span',{id:'tpProbAj',class:'small muted',style:'font-weight:400',text:'Uma ou duas frases. Não coloque dados pessoais.'})),ta,fb,
+    h('div',{class:'fgrid'},h('label',{for:'tpOrg'},'Órgão (opcional)',org),h('label',{for:'tpUf'},'UF',uf),h('label',{for:'tpArea'},'Área',ar)),
+    ck?h('label',{class:'chk',for:'tpAceite'},ck,h('span',{},'Li e concordo com o ',h('a',{href:'#termos'},'termo de uso'),'. Sei que a plataforma é um apoio e não substitui o parecer jurídico.')):'',
+    h('div',{class:'row'},go));
+  return box;
+}
+
 function renderRadar(){
-  renderRadarJourney();renderHero();renderPrevisoes();renderIndicators();tidyIndicators();fillRadarFilters();$('#radArea').value=S.radF.area;$('#radUf').value=S.radF.uf;$('#radEsfera').value=S.radF.esfera;
+  renderTarefas();renderRadarJourney();renderHero();renderPrevisoes();renderIndicators();tidyIndicators();fillRadarFilters();$('#radArea').value=S.radF.area;$('#radUf').value=S.radF.uf;$('#radEsfera').value=S.radF.esfera;
   const body=$('#radBody');
   if(RADERR){body.replaceChildren(h('div',{class:'empty'},h('b',{text:'Não foi possível carregar os dados do Radar agora.'}),h('span',{text:'Recarregue a página. Se continuar, use o painel completo pelo link acima.'})));return}
   if(!RAD){body.replaceChildren(h('div',{class:'empty'},h('span',{text:'Carregando os dados do Observatório…'})));return}
@@ -5403,7 +5501,7 @@ async function boot(){
       S.procs.set(ch.doc.id,JSON.parse(JSON.stringify(ch.doc.data())));
     });
     S.ready=true;
-    if(S.route==='processos'&&!S.open)keepFocus(renderProcs);else if(S.route==='inicio')keepFocus(renderHome);renderHeader();
+    if(S.route==='processos'&&!S.open)keepFocus(renderProcs);else if(S.route==='inicio')keepFocus(renderHome);else if(S.route==='radar'&&!TQ.aberto)renderTarefas();renderHeader();
   },e=>{S.ready=true;render()});
   S.db.collection('vitrine').onSnapshot(qs=>{S.vitrine=qs.docs.map(d=>({id:d.id,data:d.data()}));if(S.route==='inicio')renderSeason();if(S.route==='radar'){renderIndicators();tidyIndicators();renderRadarJourney()}if(S.view==='vitrine')keepFocus(renderVitrine);if(S.route==='rede')keepFocus(renderRede)},e=>{});
   S.db.collection('interesse').onSnapshot(qs=>{S.interesse=qs.docs.map(d=>({id:d.id,data:d.data()}));if(S.view==='vitrine')keepFocus(renderVitrine)},e=>{});
@@ -5414,7 +5512,6 @@ document.documentElement.lang='pt-BR';
 boot();loadRadar();
 })();
 </script>
-
 <script>setTimeout(function(){var b=document.getElementById('authBanner'),m=document.getElementById('authMsg');if(b&&m&&b.hidden){m.textContent='Versão pública gratuita: seus processos ficam salvos só neste navegador (não vão para a internet). Para não perder, baixe o dossiê em Word de cada processo. A versão com conta, nuvem e compartilhamento entre órgãos está a caminho.';b.hidden=false}},1800)</script>
 </body>
 </html>
