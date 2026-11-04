@@ -13,3 +13,8 @@ Dados públicos: Observatório do CPSI, PGE-SP e Toolkit do Marco Legal de CT&I,
 ## Observações
 - Material de apoio; não substitui a análise jurídica do órgão.
 - Páginas por estado: https://helloliueunice.github.io/jornada-cpsi/cpsi/estado/<uf>.html; por área: https://helloliueunice.github.io/jornada-cpsi/cpsi/area/<area>.html
+
+## Guias novos
+- [Como fazer um CPSI: passo a passo em 6 etapas](https://helloliueunice.github.io/jornada-cpsi/cpsi-passo-a-passo.html): Passo a passo do CPSI: problema, planejamento, edital de 30 dias, comissão, teste de até 12 meses e contrato de fornecimento. Com prazos reais e modelos grátis.
+- [Edital de CPSI: o que precisa ter, item por item](https://helloliueunice.github.io/jornada-cpsi/edital-cpsi.html): Checklist do edital de CPSI conforme a LC 182/2021: problema, 30 dias, comissão, 5 critérios, valor, remuneração e minuta do contrato. Com modelos e editais reais.
+- [CPSI, encomenda tecnológica ou diálogo competitivo: qual usar?](https://helloliueunice.github.io/jornada-cpsi/cpsi-ou-encomenda-tecnologica.html): Compare CPSI, encomenda tecnológica, diálogo competitivo, concurso e compra comum: quando usar cada um, base legal e como escolher, com diagnóstico grátis.
